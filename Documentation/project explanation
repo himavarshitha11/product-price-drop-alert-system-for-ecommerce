@@ -1,6 +1,9 @@
 # 📉  Price drop alert system for ecommerce
 
-This project is a simple yet powerful **product Price Tracker** built with **Python Flask**. It tracks the price of a product from **Amazon.in/Flipkart.in/meesho.in**etc and sends an email alert when the price falls below or equal to your set target price.
+This project is a simple yet powerful **product Price Tracker** built with **Python Flask**. It tracks the price 
+of a product from **Amazon.in/Flipkart.in/meesho.in**etc and sends an email alert when the price falls below or equal to 
+your set target price.
+
 ---
 
 ## ✅ Features
@@ -30,7 +33,9 @@ Here's a clean and clear version of your documentation based on the steps you de
 
 ### 🔧 1. Project Setup
 
-This project is designed to monitor the price of a product on Amazon, Flipkart etc and send an email alert to the user if the price drops to or below a specified target. It consists of a Python script (`main.py`) and a simple Flask web interface (`templates/index.html`).
+This project is designed to monitor the price of a product on Amazon, Flipkart etc and send an email alert to the user
+if the price drops to or below a specified target. It consists of a Python script (`main.py`) and a simple Flask web 
+interface (`templates/index.html`).
 
 ---
 
@@ -38,7 +43,9 @@ This project is designed to monitor the price of a product on Amazon, Flipkart e
 
 #### ✅ **User Agent**
 
-To access product data from Amazon flipkart etc without being blocked, we use a **User-Agent** string. A user-agent simulates a browser request.
+To access product data from Amazon flipkart etc without being blocked, we use a **User-Agent** string. A user-agent
+simulates a browser request.
+
 **To find one:**
 Search on Google: *"What is my user agent"* — copy the string shown and use it in your code.
 
@@ -86,7 +93,8 @@ Use Flask to create a simple web page:
 * `main.py`: Handles logic and routing.
 * `templates/index.html`: The frontend form.
 
-You can run this project locally or deploy it to Replit. The form allows users to enter the above details and click **Check and Send Email**.
+You can run this project locally or deploy it to Replit. The form allows users to enter the above details and 
+click **Check and Send Email**.
 
 ---
 
