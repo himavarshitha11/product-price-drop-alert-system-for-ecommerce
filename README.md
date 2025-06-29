@@ -45,7 +45,7 @@ It’s perfect for online shoppers looking to *save money* by catching deals at 
 1. ✅ *Email Sent After Price Drop Detected*
   🔹 This screenshot shows the terminal output after running the Python code.
     It confirms that the system successfully checked the product's current price and sent an email notification to the user because the price dropped below the target.
-   ![Screenshot 1](screenshots/email-sent.png)
+   ![Screenshot 1](https://github.com/himavarshitha11/product-price-drop-alert-system-for-ecommerce/blob/e45c783ab0e2add4c700ec84fc12733e801b95bc/Screenshot%20(13).png)
 
 2. 📥 *Email Received by User*
 📩 This screenshot displays the email alert received in the user's inbox.
