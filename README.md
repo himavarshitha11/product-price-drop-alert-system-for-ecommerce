@@ -51,7 +51,7 @@ It’s perfect for online shoppers looking to *save money* by catching deals at 
 📩 This screenshot displays the email alert received in the user's inbox.
  It indicates that the product's price dropped to or below the target price, and the system automatically notified the user with the product link.
    ![Screenshot 2](https://github.com/himavarshitha11/product-price-drop-alert-system-for-ecommerce/blob/c9af4f4616bc37e811b2c834ef2cdee2b4411d5f/Screenshot%20(17).png)
-   ![Screenshot 3](screenshots/email-received.png)
+   ![Screenshot 3](https://github.com/himavarshitha11/product-price-drop-alert-system-for-ecommerce/blob/23b8028082a0f595770f861005633347d33c0977/Screenshot%20(18).png)
 
 
 3. 🖥 *Web App - Input Page (UI)*
