@@ -1,0 +1,105 @@
+# 📉  Price drop alert system for ecommerce
+
+This project is a simple yet powerful **product Price Tracker** built with **Python Flask**. It tracks the price of a product from **Amazon.in/Flipkart.in/meesho.in**etc and sends an email alert when the price falls below or equal to your set target price.
+---
+
+## ✅ Features
+
+- ✅ Track any product from **Amazon.in/Flipkart.in/meesho.in**etc
+- ✅ User inputs product URL and desired target price
+- ✅ Sends automatic **email notification** when the price drops
+- ✅ Beautiful **web UI** built with Flask and HTML
+- ✅ Deployable on **Replit** for live hosting
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python 3**
+- **Flask**
+- **Requests**
+- **BeautifulSoup (bs4)**
+- **SMTP (smtplib for Gmail)**
+
+---
+Here's a clean and clear version of your documentation based on the steps you described:
+
+---
+
+## 📦 Product Price Drop Alert System — Project Documentation
+
+### 🔧 1. Project Setup
+
+This project is designed to monitor the price of a product on Amazon, Flipkart etc and send an email alert to the user if the price drops to or below a specified target. It consists of a Python script (`main.py`) and a simple Flask web interface (`templates/index.html`).
+
+---
+
+### 🌐 2. Key Components
+
+#### ✅ **User Agent**
+
+To access product data from Amazon flipkart etc without being blocked, we use a **User-Agent** string. A user-agent simulates a browser request.
+**To find one:**
+Search on Google: *"What is my user agent"* — copy the string shown and use it in your code.
+
+#### 🔗 **Product URL & Price Class**
+
+* Go to the Amazon product page.
+* Right-click on the product price and select **Inspect**.
+* Find the HTML tag that holds the price (typically `<span class="a-price-whole">`).
+* Use this class in your Python script to extract the current price.
+
+
+#### 📧 **Gmail Setup**
+
+To send an email alert from your Gmail:
+
+1. Enable **2-Step Verification** on your Gmail account.
+2. Go to **Google Account > Security > App Passwords**.
+3. Generate a new app password (16 characters).
+4. Use that password in the script instead of your real password.
+
+
+---
+
+### 🕓 3. Email Alert Setup
+
+You must input the following:
+
+* **Product URL** (copied from Amazon)
+* **Target Price** (₹ below which you want an alert)
+* **From Email** (sender Gmail)
+* **From Email Password** (16-char app password)
+* **To Email** (email where alert should be sent)
+
+---
+
+> ⏱️ **Interval Check**
+ This sets how often (in seconds) the program checks the product price.
+> For example, if set to `60`, the price is checked every **60 seconds**.
+
+
+### 💻 4. Web Interface
+
+Use Flask to create a simple web page:
+
+* `main.py`: Handles logic and routing.
+* `templates/index.html`: The frontend form.
+
+You can run this project locally or deploy it to Replit. The form allows users to enter the above details and click **Check and Send Email**.
+
+---
+
+### 📥 5. Output
+
+When the product price drops to or below the target price:
+
+* You get an email like:
+
+  > 🎉 Price Dropped!
+  > The product is now ₹31,998.
+  > \[Amazon Link]
+
+
+---
+note:you see screenshots and live link in Readme

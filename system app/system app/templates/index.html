@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amazon Price Drop Alert</title>
+    <style>
+        body {
+            background: #f1f5f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 30px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 25px 30px;
+            max-width: 500px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1d4ed8;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            background-color: #1d4ed8;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2> Price Drop Alert System</h2>
+    <form method="POST">
+        <label>Product URL</label>
+        <input type="text" name="url" placeholder="Enter product URL" required>
+
+        <label>Target Price (₹)</label>
+        <input type="number" name="price" placeholder="e.g. 36000" required>
+
+        <label>From Email</label>
+        <input type="email" name="from_email" placeholder="Your Gmail address" required>
+
+        <label>App Password</label>
+        <input type="password" name="from_pass" placeholder="App password from Gmail" required>
+
+        <label>Recipient Email</label>
+        <input type="email" name="to_email" placeholder="Recipient email" required>
+
+        <button type="submit">check and send mail </button>
+    </form>
+
+    {% if message %}
+    <div class="message">{{ message }}</div>
+    {% endif %}
+</div>
+</body>
+</html>

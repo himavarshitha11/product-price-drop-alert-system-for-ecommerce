@@ -1,0 +1,81 @@
+import requests
+from bs4 import BeautifulSoup
+import smtplib
+from email.mime.text import MIMEText
+import time
+
+# Format URL
+def format_url(raw_url):
+    if not raw_url.startswith("http"):
+        return "https://" + raw_url.strip()
+    return raw_url
+
+# Get the product price from ecommerce 
+def get_price(url):
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers)
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        # Find price using CSS classes
+        price_block = soup.find("span", class_="a-price-whole")
+        if price_block:
+            price = price_block.text.strip().replace(',', '').replace('.', '')
+            return float(price)
+        else:
+            print("[ERROR] Price not found.")
+            return None
+
+    except Exception as e:
+        print(f"[ERROR] Exception while fetching price: {e}")
+        return None
+
+# Send an email alert
+def send_email(subject, body, to_email, from_email, from_password):
+    try:
+        msg = MIMEText(body)
+        msg['Subject'] = subject
+        msg['From'] = from_email
+        msg['To'] = to_email
+
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        server.login(from_email, from_password)
+        server.send_message(msg)
+        server.quit()
+        print("[SUCCESS] Email sent successfully!")
+    except Exception as e:
+        print(f"[ERROR] Failed to send email: {e}")
+
+# Track the price
+def track_price(url, target_price, check_interval, to_email, from_email, from_password):
+    url = format_url(url)
+    while True:
+        print(f"\n[INFO] Checking price at {time.ctime()}...")
+        current_price = get_price(url)
+        if current_price is not None:
+            print(f"[INFO] Current Price: ₹{current_price}")
+            if current_price <= target_price:
+                subject = "🎉 Price Dropped!"
+                body = f"The product price dropped to ₹{current_price}!\nBuy now: {url}"
+                send_email(subject, body, to_email, from_email, from_password)
+                break
+            else:
+                print(f"[WAIT] Price is high. Checking again in {check_interval} seconds.")
+        else:
+            print("[RETRY] Could not fetch price. Retrying...")
+        time.sleep(check_interval)
+
+# ----------------- MAIN -----------------
+if __name__ == "__main__":
+    url = "https://www.amazon.in/HP-i3-1315U-Anti-Glare-Micro-Edge-15-6-inch/dp/B0C3RF3HT3/"
+    target_price = 37000
+    check_interval = 60 # Check every 60 seconds
+
+    from_email = "project009966@gmail.com"
+    from_password = "vvzlbkyieutvappi"
+    to_email = "himavarshitha096@gmail.com"
+
+    print("🚀 Starting Price Drop Alert System...")
+    track_price(url, target_price, check_interval, to_email, from_email, from_password)
