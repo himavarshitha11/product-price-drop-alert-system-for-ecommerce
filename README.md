@@ -56,7 +56,7 @@ It’s perfect for online shoppers looking to *save money* by catching deals at 
 
 3. 🖥 *Web App - Input Page (UI)*
 🖥️ This screenshot shows the user interface of the web app built using Flask.
- Users can enter the product URL, target price, sender email credentials, and recipient email to receive automated alerts when the price drops
+ Users can enter the product URL, target price, sender email credentials, and recipient email to receive automated alerts when the price drops by clicking check and send email button.
    ![Screenshot 4](https://github.com/himavarshitha11/product-price-drop-alert-system-for-ecommerce/blob/3f82584f7dc8a4d8f1d8486085bb4a525d39f070/Screenshot%20(24).png)
 
 ---
