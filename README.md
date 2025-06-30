@@ -14,9 +14,8 @@ It’s perfect for online shoppers looking to *save money* by catching deals at 
 
 ## 🌐 Live Website
 
-🔗 [Click Here to Visit the Live Web App](https://your-replit-link-here)
-
-> Replace this link with your actual Replit deployment link.
+🔗 [Click Here to Visit the Live Web App](https://replit.com/@himavarshitha09/price-drop-alert-system-for-ecommerce)
+NOTE:🔗  click the "Run" button at the top of the page after opening the link, To run the web app.
 
 ---
 
