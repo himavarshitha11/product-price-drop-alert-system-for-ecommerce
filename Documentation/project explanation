@@ -12,7 +12,6 @@ your set target price.
 - ✅ User inputs product URL and desired target price
 - ✅ Sends automatic **email notification** when the price drops
 - ✅ Beautiful **web UI** built with Flask and HTML
-- ✅ Deployable on **Replit** for live hosting
 
 ---
 
@@ -25,9 +24,6 @@ your set target price.
 - **SMTP (smtplib for Gmail)**
 
 ---
-Here's a clean and clear version of your documentation based on the steps you described:
-
----
 
 ## 📦 Product Price Drop Alert System — Project Documentation
 
@@ -35,7 +31,7 @@ Here's a clean and clear version of your documentation based on the steps you de
 
 This project is designed to monitor the price of a product on Amazon, Flipkart etc and send an email alert to the user
 if the price drops to or below a specified target. It consists of a Python script (`main.py`) and a simple Flask web 
-interface (`templates/index.html`).
+interface (`templates/index.html`) and requirements.txt .
 
 ---
 
@@ -51,7 +47,7 @@ Search on Google: *"What is my user agent"* — copy the string shown and use it
 
 #### 🔗 **Product URL & Price Class**
 
-* Go to the Amazon product page.
+* Go to the ecommerce product page.
 * Right-click on the product price and select **Inspect**.
 * Find the HTML tag that holds the price (typically `<span class="a-price-whole">`).
 * Use this class in your Python script to extract the current price.
@@ -92,6 +88,7 @@ Use Flask to create a simple web page:
 
 * `main.py`: Handles logic and routing.
 * `templates/index.html`: The frontend form.
+*  requirements.txt:contain requirements.
 
 You can run this project locally or deploy it to Replit. The form allows users to enter the above details and 
 click **Check and Send Email**.
@@ -106,7 +103,7 @@ When the product price drops to or below the target price:
 
   > 🎉 Price Dropped!
   > The product is now ₹31,998.
-  > \[Amazon Link]
+  > \[Product Link]
 
 
 ---
