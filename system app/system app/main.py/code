@@ -1,3 +1,4 @@
+# main.py
 from flask import Flask, render_template, request
 import requests
 from bs4 import BeautifulSoup
@@ -6,30 +7,29 @@ from email.mime.text import MIMEText
 
 app = Flask(__name__)
 
+# Function to extract price
 def get_price(url):
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
+    }
     try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36'
-        }
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.content, 'html.parser')
+        whole = soup.select_one("span.a-price-whole")
+        fraction = soup.select_one("span.a-price-fraction")
 
-        price_whole = soup.find("span", class_="a-price-whole")
-        price_fraction = soup.find("span", class_="a-price-fraction")
-
-        if price_whole:
-            price = price_whole.text.strip().replace(',', '')
-            if price_fraction:
-                price += "." + price_fraction.text.strip()
-            else:
-                price += ".00"
-            return float(price)
+        if whole:
+            whole_price = whole.text.strip().replace(',', '')
+            fraction_price = fraction.text.strip() if fraction else '00'
+            final_price = float(f"{whole_price}.{fraction_price}")
+            return final_price
         else:
             return None
     except Exception as e:
-        print(f"[ERROR] Failed to fetch price: {e}")
+        print("[Error]", e)
         return None
 
+# Function to send email
 def send_email(subject, body, to_email, from_email, from_password):
     try:
         msg = MIMEText(body)
@@ -41,35 +41,37 @@ def send_email(subject, body, to_email, from_email, from_password):
         server.login(from_email, from_password)
         server.send_message(msg)
         server.quit()
-        print("[SUCCESS] Email sent successfully!")
+        return True
     except Exception as e:
-        print(f"[ERROR] Failed to send email: {e}")
+        print("[Email Error]", e)
+        return False
 
+# Route
 @app.route("/", methods=["GET", "POST"])
 def index():
     message = ""
     if request.method == "POST":
-        url = request.form["url"]
-        try:
-            target_price = float(request.form["price"])
-        except:
-            message = "❌ Invalid price format!"
-            return render_template("index.html", message=message)
-        from_email = request.form["from_email"]
-        from_pass = request.form["from_pass"]
-        to_email = request.form["to_email"]
+        url = request.form['url']
+        target_price = float(request.form['price'])
+        from_email = request.form['from_email']
+        from_pass = request.form['from_pass']
+        to_email = request.form['to_email']
 
         current_price = get_price(url)
         if current_price:
             if current_price <= target_price:
                 subject = "🎉 Price Drop Alert!"
-                body = f"The product price dropped to ₹{current_price}!\nCheck here: {url}"
-                send_email(subject, body, to_email, from_email, from_pass)
-                message = f"✅ Price is ₹{current_price}. Email sent!"
+                body = f"The price dropped to ₹{current_price}!\nBuy now: {url}"
+                sent = send_email(subject, body, to_email, from_email, from_pass)
+                if sent:
+                    message = f"✅ Email sent! Price ₹{current_price} is below target."
+                else:
+                    message = "❌ Failed to send email."
             else:
-                message = f"⚠️ Current price ₹{current_price} is still above your target ₹{target_price}."
+                message = f"⚠️ Current price ₹{current_price} is above your target ₹{target_price}."
         else:
             message = "❌ Could not fetch price. Please check the product URL."
+
     return render_template("index.html", message=message)
 
 if __name__ == "__main__":
