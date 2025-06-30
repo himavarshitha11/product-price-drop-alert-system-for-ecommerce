@@ -1,79 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Amazon Price Drop Alert</title>
+    <meta charset="UTF-8">
+    <title>Product Price Drop Alert</title>
     <style>
         body {
-            background: #f1f5f9;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #111827;
+            white-space: nowrap;
+            font-size: 28px;
+        }
+        form {
+            background-color: #ffffff;
             padding: 30px;
-            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
         }
-        .container {
-            background: white;
-            padding: 25px 30px;
-            max-width: 500px;
-            margin: auto;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #1d4ed8;
-        }
-        input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
+        input {
             width: 100%;
             padding: 10px;
-            margin: 8px 0 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
             border: 1px solid #ccc;
-            border-radius: 6px;
         }
         button {
-            background-color: #1d4ed8;
-            color: white;
-            padding: 12px;
             width: 100%;
+            padding: 10px;
+            background-color: #3b82f6;
+            color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #2563eb;
+            border-radius: 5px;
+            font-weight: bold;
         }
         .message {
             margin-top: 15px;
-            text-align: center;
+            color: green;
             font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <h2> Price Drop Alert System</h2>
+    <h1>Product Price Drop Alert System</h1>
     <form method="POST">
-        <label>Product URL</label>
-        <input type="text" name="url" placeholder="Enter product URL" required>
-
-        <label>Target Price (₹)</label>
-        <input type="number" name="price" placeholder="e.g. 36000" required>
-
-        <label>From Email</label>
-        <input type="email" name="from_email" placeholder="Your Gmail address" required>
-
-        <label>App Password</label>
-        <input type="password" name="from_pass" placeholder="App password from Gmail" required>
-
-        <label>Recipient Email</label>
-        <input type="email" name="to_email" placeholder="Recipient email" required>
-
-        <button type="submit">check and send mail </button>
+        <input type="text" name="url" placeholder="Enter Product URL" required>
+        <input type="number" name="price" placeholder="Enter Target Price ₹" required>
+        <input type="email" name="from_email" placeholder="Sender Gmail Address" required>
+        <input type="password" name="from_pass" placeholder="Sender Gmail App Password" required>
+        <input type="email" name="to_email" placeholder="Recipient Email Address" required>
+        <button type="submit">Check & Send Email</button>
     </form>
-
     {% if message %}
     <div class="message">{{ message }}</div>
     {% endif %}
-</div>
 </body>
 </html>
