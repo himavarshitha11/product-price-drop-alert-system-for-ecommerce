@@ -23,8 +23,7 @@ NOTE:🔗  click the "Run" button at the top of the page after opening the link,
 
 ✅ Scrapes live product price from Amazon flipkart etc 
 ✅ Email alerts when price drops below target  
-✅ Easy-to-use, beautiful web interface  
-✅ Hosted online using   
+✅ Easy-to-use, beautiful web interface    
 ✅ Gmail-based SMTP notification system  
 
 ---
