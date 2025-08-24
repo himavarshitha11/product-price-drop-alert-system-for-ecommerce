@@ -12,13 +12,6 @@ It’s perfect for online shoppers looking to *save money* by catching deals at 
 
 ---
 
-## 🌐 Live Website
-
-🔗 [Click Here to Visit the Live Web App](https://replit.com/@himavarshitha09/price-drop-alert-system-for-ecommerce)
-NOTE:🔗  click the "Run" button at the top of the page after opening the link, To run the web app.
-
----
-
 ## ✨ Features
 
 ✅ Scrapes live product price from Amazon flipkart etc 
@@ -34,7 +27,7 @@ NOTE:🔗  click the "Run" button at the top of the page after opening the link,
 -  Flask  
 -  BeautifulSoup (for web scraping)  
 -  SMTP (Gmail for email alerts)  
--  HTML & CSS (Web UI)
+- 
 
 ---
 
@@ -52,11 +45,6 @@ NOTE:🔗  click the "Run" button at the top of the page after opening the link,
    ![Screenshot 3](https://github.com/himavarshitha11/product-price-drop-alert-system-for-ecommerce/blob/23b8028082a0f595770f861005633347d33c0977/Screenshot%20(18).png)
 
 
-3. 🖥 *Web App - Input Page (UI)*
-🖥️ This screenshot shows the user interface of the web app built using Flask.
- Users can enter the product URL, target price, sender email credentials, and recipient email to receive automated alerts when the price drops by clicking check and send email button.
-   ![Screenshot 4](https://github.com/himavarshitha11/product-price-drop-alert-system-for-ecommerce/blob/3f82584f7dc8a4d8f1d8486085bb4a525d39f070/Screenshot%20(24).png)
-
 ---
 
 ## ⏳ Future Plans
@@ -64,7 +52,7 @@ NOTE:🔗  click the "Run" button at the top of the page after opening the link,
 📈 Show price history trends  
 🔔 Add WhatsApp or SMS notifications  
 👥 Let users track multiple products
-
+ and adding websites
 ---
 
 ## 🙌 Developed by
