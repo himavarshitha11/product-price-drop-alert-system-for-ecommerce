@@ -23,11 +23,9 @@ It’s perfect for online shoppers looking to *save money* by catching deals at 
 
 ## 💻 Technologies Used
 
--  Python  
--  Flask  
+-  Python    
 -  BeautifulSoup (for web scraping)  
 -  SMTP (Gmail for email alerts)  
-- 
 
 ---
 
